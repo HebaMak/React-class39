@@ -31,7 +31,8 @@ const ProductContext = ({children}) => {
     categories,
     filterProducts,
     isLoading, 
-    error
+    error,
+    URL
   }
 
   return(
