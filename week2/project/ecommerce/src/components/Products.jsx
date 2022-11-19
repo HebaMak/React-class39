@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { provideContext } from '../hooks/context'
+import Categories from './Categories';
 import Product from './Product'
 import Loading from "./Loading";
 import Error from "./Error";
@@ -11,8 +12,9 @@ function Products() {
 
   return (
     <>
-      {isLoading && <Loading />}
-      {error && <Error />}
+      {isLoading && <Loading title='Just count to 10 and Products will Come 😀'/>}
+      {error && <Error title='Error in Fetching data'/>}
+      <Categories />
       {
         products &&
         <div className='products_container'>
@@ -21,7 +23,7 @@ function Products() {
             <Product key={product.id} product={product}/> 
             ))
         }
-      </div>
+        </div>
       }
     </>
   )
