@@ -1,25 +1,27 @@
 import { useContext } from "react";
 import { provideContext } from '../hooks/context'
-
-import Categories from './Categories'
 import Product from './Product'
+import Loading from "./Loading";
 
 
 function Products() {
 
-  const {products} = useContext(provideContext)
+  const {products , isLoading , error} = useContext(provideContext)
 
   return (
     <>
-      <h1 className="title">Products</h1>
-      <Categories />
-      <div className='products_container'>
+      {isLoading && <Loading />}
+      {error &&   <h1>Error in loading products</h1>}
+      {
+        products &&
+        <div className='products_container'>
         {
           products.map((product) => (
-          <Product key={product.id} product={product}/> 
-          ))
+            <Product key={product.id} product={product}/> 
+            ))
         }
       </div>
+      }
     </>
   )
 }

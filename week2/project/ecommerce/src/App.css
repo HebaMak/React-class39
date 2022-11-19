@@ -58,6 +58,21 @@
   object-fit: contain;
 }
 
+/* loading page  */
+.loading {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+.loading img {
+  width: 200px;
+}
+.loading h2 {
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+
 /* media query */
 @media (max-width:  768px) { 
   .category_container {
