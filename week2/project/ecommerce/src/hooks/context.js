@@ -4,10 +4,10 @@ import useFetch from "./useFetch";
 export const provideContext = createContext()
 
 const ProductContext = ({children}) => {
-  const {data: allProducts ,  isLoading , error} = useFetch('https://fakestoreapi.com/products');
-  const {data: categories} = useFetch('https://fakestoreapi.com/products/categories');
+  const URL = 'https://fakestoreapi.com/products'
+  const {data: allProducts ,  isLoading , error} = useFetch(URL);
+  const {data: categories} = useFetch(`${URL}/categories`)
   const [products , setProducts] = useState([])
-
   useEffect(() => {
     setProducts(allProducts)
   } , [allProducts])

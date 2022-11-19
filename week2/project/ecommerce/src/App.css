@@ -59,15 +59,18 @@
 }
 
 /* loading page  */
-.loading {
+.loading , 
+.error {
   width: 70%;
   margin: auto;
   text-align: center;
 }
-.loading img {
-  width: 200px;
+.loading img ,
+.error img {
+  width: 300px;
 }
-.loading h2 {
+.loading h2 ,
+.error h2 {
   font-size: 30px;
   letter-spacing: 1px;
 }

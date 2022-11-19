@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { provideContext } from '../hooks/context'
 import Product from './Product'
 import Loading from "./Loading";
+import Error from "./Error";
 
 
 function Products() {
@@ -11,7 +12,7 @@ function Products() {
   return (
     <>
       {isLoading && <Loading />}
-      {error &&   <h1>Error in loading products</h1>}
+      {error && <Error />}
       {
         products &&
         <div className='products_container'>
