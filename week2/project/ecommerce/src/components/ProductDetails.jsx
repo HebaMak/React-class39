@@ -19,7 +19,7 @@ function ProductDetails() {
     {error && <Error title='Error is occurs while loading the details'/>}
     {
       product && 
-        <div className='details-Container'>
+      <div className={isLoading ? 'details-Container none' : 'details-Container'}>
           <div className="left">
             <img src={image} alt={title} className='product-image'/>
           </div>

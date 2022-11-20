@@ -82,6 +82,9 @@ a {
 }
 
 /* product details  */
+.details-Container.none {
+  display: none;
+}
 .details-Container {
   display: flex;
   width: 70%;
