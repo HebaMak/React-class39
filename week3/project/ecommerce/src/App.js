@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductContext from "./hooks/context";
-import Products from "./components/Products";
-import ProductDetails from "./components/ProductDetails";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 import "./App.css";
 
 function App() {

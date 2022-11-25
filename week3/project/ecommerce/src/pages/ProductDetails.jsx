@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { provideContext } from "../hooks/context";
-import Loading from "./Loading";
-import Error from "./Error";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 function ProductDetails() {
   const { id } = useParams();
