@@ -8,11 +8,16 @@ const ProductContext = ({ children }) => {
 
   const { data: allProducts, isLoading, error } = useFetch(URL);
   const [products, setProducts] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(
+    localStorage.getItem("favorites")
+      ? JSON.parse(localStorage.getItem("favorites"))
+      : []
+  );
 
   useEffect(() => {
     setProducts(allProducts);
-  }, [allProducts]);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [allProducts, favorites]);
 
   const filterProducts = (e, cate) => {
     //filter out the products to that related to clicked button

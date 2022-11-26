@@ -199,10 +199,22 @@ p::first-letter {
 }
 
 /* favorites page */
-.favorites_page h1 {
+.favorites_page {
+  width: 80%;
+  margin: auto;
   text-align: center;
+}
+.favorites_page .fav_title {
   text-transform: capitalize;
   margin-top: 150px;
+  text-align: center;
+}
+.favorites_page .fav_title.none {
+  display: none;
+}
+.fav_container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* media query */
