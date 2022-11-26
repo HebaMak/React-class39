@@ -1,17 +1,20 @@
-import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import Product from "../components/Product";
 import useFetch from "../hooks/useFetch";
-import { provideContext } from "../hooks/context";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 
-function ProductDetails() {
+const ProductDetails = () => {
   const { id } = useParams();
   const ID = +id;
-  const { URL } = useContext(provideContext);
-  const { data: product, isLoading, error } = useFetch(`${URL}/${ID}`);
 
-  const { image, title, category, description, price } = product;
+  const {
+    data: product,
+    isLoading,
+    error,
+  } = useFetch(`https://fakestoreapi.com/products/${ID}`);
+  const { category, description, title } = product;
+
   return (
     <>
       {isLoading && <Loading title="Details coming soon" />}
@@ -20,19 +23,16 @@ function ProductDetails() {
         <div
           className={isLoading ? "details-Container none" : "details-Container"}
         >
-          <div className="left">
-            <img src={image} alt={title} className="product-image" />
-          </div>
-          <div className="right">
-            <h1>{title}</h1>
-            <h2>{category}</h2>
+          <Product product={product} />
+          <div className="details">
+            <h2>{title}</h2>
+            <h3>{category}</h3>
             <p>{description}</p>
-            <h4>Price: {price}$</h4>
           </div>
         </div>
       )}
     </>
   );
-}
+};
 
 export default ProductDetails;

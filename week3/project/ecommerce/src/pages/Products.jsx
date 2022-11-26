@@ -15,13 +15,12 @@ function Products() {
       )}
       {error && <Error title="Error in Fetching data" />}
       <Categories />
-      {products && (
-        <div className="products_container">
-          {products.map((product) => (
-            <Product key={product.id} product={product} />
-          ))}
-        </div>
-      )}
+      <div className="products">
+        {products &&
+          products.map((product) => {
+            return <Product key={product.id} product={product} />;
+          })}
+      </div>
     </>
   );
 }
