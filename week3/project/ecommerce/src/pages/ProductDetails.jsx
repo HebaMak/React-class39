@@ -14,7 +14,7 @@ const ProductDetails = () => {
     error,
   } = useFetch(`https://fakestoreapi.com/products/${ID}`);
   const { category, description, title } = product;
-
+  console.log(product);
   return (
     <>
       {isLoading && <Loading title="Details coming soon" />}
