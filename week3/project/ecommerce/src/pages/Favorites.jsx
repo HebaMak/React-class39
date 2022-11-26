@@ -29,7 +29,7 @@ const Favorites = () => {
       });
 
     console.log("products", favProducts);
-  }, [favorites]);
+  }, [favorites, URL, favProducts]);
 
   return (
     <div className="favorites_page">
