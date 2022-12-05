@@ -47,6 +47,7 @@ const ProductContext = ({ children }) => {
   };
 
   const value = {
+    URL,
     products,
     filterProducts,
     isLoading,
