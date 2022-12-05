@@ -27,8 +27,6 @@ const Favorites = () => {
         setError(true);
         setLoading(false);
       });
-
-    console.log("products", favProducts);
   }, [favorites, URL, favProducts]);
 
   return (
