@@ -42,7 +42,7 @@ const Favorites = () => {
         <div className="fav_container">
           {favProducts &&
             favProducts.map((product) => {
-              return <Product product={product} />;
+              return <Product product={product} key={product.id} />;
             })}
         </div>
       )}
