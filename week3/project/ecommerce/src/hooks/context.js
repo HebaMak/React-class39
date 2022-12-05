@@ -8,6 +8,7 @@ const ProductContext = ({ children }) => {
 
   const { data: allProducts, isLoading, isError } = useFetch(URL);
   const [products, setProducts] = useState([]);
+  const [filteredPro, setFilteredPro] = useState([]);
   const [favorites, setFavorites] = useState(
     localStorage.getItem("favorites")
       ? JSON.parse(localStorage.getItem("favorites"))
@@ -15,16 +16,16 @@ const ProductContext = ({ children }) => {
   );
 
   useEffect(() => {
-    setProducts(allProducts);
+    if (filteredPro.length === 0) {
+      setProducts(allProducts);
+    }
     localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+  }, [favorites, allProducts, filteredPro]);
 
   const filterProducts = (e, cate) => {
     //filter out the products to that related to clicked button
-    const filteredProducts = allProducts.filter(
-      (product) => product.category === cate
-    );
-    setProducts(filteredProducts);
+    const filtered = allProducts.filter((product) => product.category === cate);
+    setFilteredPro(filtered);
 
     //activate the clicked button
     Array.from(e.target.parentNode.children).forEach((btn) => {
@@ -49,12 +50,13 @@ const ProductContext = ({ children }) => {
   const value = {
     URL,
     products,
-    filterProducts,
-    isLoading,
     isError,
-    handleFavorite,
-    isFavorite,
     favorites,
+    isLoading,
+    isFavorite,
+    filteredPro,
+    filterProducts,
+    handleFavorite,
   };
 
   return (
