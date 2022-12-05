@@ -34,6 +34,11 @@ const ProductContext = ({ children }) => {
     e.target.classList.add("active");
   };
 
+  // clear filter
+  const clearFilter = () => {
+    setFilteredPro([]);
+  };
+
   const handleFavorite = (id) => {
     if (favorites.includes(id)) {
       const favoritesIds = favorites.filter((favId) => favId !== id);
@@ -53,6 +58,7 @@ const ProductContext = ({ children }) => {
     isError,
     favorites,
     isLoading,
+    clearFilter,
     isFavorite,
     filteredPro,
     filterProducts,
